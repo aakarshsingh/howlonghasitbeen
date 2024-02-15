@@ -1,8 +1,15 @@
+<!DOCTYPE html>
 <html>
+
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <title>Hello World</title>
+  </head>
 
   <body>
 
-    <div class="countup" id="countup1">
+    <div class="countup" id="countup1" onload="setbackground()">
       <span class="timeel days">00</span>
       <span class="timeel timeRefDays">days</span>
       <span class="timeel hours">00</span>
@@ -14,5 +21,16 @@
     </div>
 
   </body>
+  <script type="text/javascript">
+    function setbackground() {
+      var letters = '0123456789ABCDEF';
+      var color = '#';
+      for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      document.getElementById("first-quote")[0].style.background = color;
+    }
+
+  </script>
 
 </html>
