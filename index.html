@@ -35,11 +35,61 @@
 
   <body>
 
+    <h2>
+      Venus
+    </h2>
     <div class="countup" id="countup1">
+      <span class="timeel years">00</span>
+      <span class="timeel timeRefDays">years</span>
       <span class="timeel days">00</span>
-      <span class="timeel timeRefDays">days, </span>
+      <span class="timeel timeRefDays">days</span>
       <span class="timeel hours">00</span>
-      <span class="timeel timeRefHours">hours, </span>
+      <span class="timeel timeRefHours">hours</span>
+      <span class="timeel minutes">00</span>
+      <span class="timeel timeRefMinutes">minutes and </span>
+      <span class="timeel seconds">00</span>
+      <span class="timeel timeRefSeconds">seconds</span>
+    </div>
+    <h2>
+      Storm
+    </h2>
+    <div class="countup" id="countup2">
+      <span class="timeel years">00</span>
+      <span class="timeel timeRefDays">years</span>
+      <span class="timeel days">00</span>
+      <span class="timeel timeRefDays">days</span>
+      <span class="timeel hours">00</span>
+      <span class="timeel timeRefHours">hours</span>
+      <span class="timeel minutes">00</span>
+      <span class="timeel timeRefMinutes">minutes and </span>
+      <span class="timeel seconds">00</span>
+      <span class="timeel timeRefSeconds">seconds</span>
+    </div>
+    <h2>
+      New Moon
+    </h2>
+    <div class="countup" id="countup3">
+      <span class="timeel years">00</span>
+      <span class="timeel timeRefDays">years</span>
+      <span class="timeel days">00</span>
+      <span class="timeel timeRefDays">days</span>
+      <span class="timeel hours">00</span>
+      <span class="timeel timeRefHours">hours</span>
+      <span class="timeel minutes">00</span>
+      <span class="timeel timeRefMinutes">minutes and </span>
+      <span class="timeel seconds">00</span>
+      <span class="timeel timeRefSeconds">seconds</span>
+    </div>
+    <h2>
+      Sirius
+    </h2>
+    <div class="countup" id="countup4">
+      <span class="timeel years">00</span>
+      <span class="timeel timeRefDays">years</span>
+      <span class="timeel days">00</span>
+      <span class="timeel timeRefDays">days</span>
+      <span class="timeel hours">00</span>
+      <span class="timeel timeRefHours">hours</span>
       <span class="timeel minutes">00</span>
       <span class="timeel timeRefMinutes">minutes and </span>
       <span class="timeel seconds">00</span>
@@ -51,6 +101,9 @@
     window.onload = function() {
       // Month Day, Year Hour:Minute:Second, id-of-element-container
       countUpFromTime("Feb 14, 2024 21:51:00", 'countup1');
+      countUpFromTime("Jan 14, 2024 17:30:00", 'countup2');
+      countUpFromTime("Nov 19, 2023 16:48:00", 'countup3');
+      countUpFromTime("Feb 12, 2023 22:45:00", 'countup4');
     };
 
     function countUpFromTime(countFrom, id) {
@@ -63,11 +116,16 @@
         secondsInAHour = 60 * 60 * 1000;
 
       days = Math.floor(timeDifference / (secondsInADay) * 1);
+      years = Math.floor(days / 365);
+      if (years > 0) {
+        days = days - (years * 365)
+      }
       hours = Math.floor((timeDifference % (secondsInADay)) / (secondsInAHour) * 1);
       mins = Math.floor(((timeDifference % (secondsInADay)) % (secondsInAHour)) / (60 * 1000) * 1);
       secs = Math.floor((((timeDifference % (secondsInADay)) % (secondsInAHour)) % (60 * 1000)) / 1000 * 1);
 
       var idEl = document.getElementById(id);
+      idEl.getElementsByClassName('years')[0].innerHTML = years;
       idEl.getElementsByClassName('days')[0].innerHTML = days;
       idEl.getElementsByClassName('hours')[0].innerHTML = hours;
       idEl.getElementsByClassName('minutes')[0].innerHTML = mins;
