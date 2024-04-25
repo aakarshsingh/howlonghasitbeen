@@ -8,6 +8,8 @@
   </head>
 
   <style>
+    .pdfobject-container { height: 500px;}
+    .pdfobject { border: 1px solid #666; }
     .countup {
       text-align: center;
       margin-bottom: 20px;
@@ -34,8 +36,7 @@
   </style>
 
   <body>
-<embed src="https://drive.google.com/viewerng/
-viewer?embedded=true&url=FAQ.pdf" width="500" height="375">
+<div id="example1"></div>
     <h2 class="labels">
       Venus
     </h2>
@@ -98,7 +99,11 @@ viewer?embedded=true&url=FAQ.pdf" width="500" height="375">
     </div>
 
   </body>
+<script src="/js/pdfobject.js"></script>
+<script>PDFObject.embed("/FAQ.pdf", "#example1");</script>
+
   <script type="text/javascript">
+
     window.onload = function() {
       // Month Day, Year Hour:Minute:Second, id-of-element-container
       countUpFromTime1("Feb 14, 2024 21:51:00", 'countup1');
