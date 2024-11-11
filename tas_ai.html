@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Celestial Timers</title>
+    <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: radial-gradient(circle, #282828, #151515);
+      color: #f0f0f0;
+      /* Slightly off-white for better readability */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      overflow: hidden;
+      /* Hide   
+ scrollbars for a cleaner look */
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      perspective: 1000px;
+      /* Add perspective for 3D effect */
+    }
+
+    .timer {
+      background: rgba(21, 21, 21, 0.8);
+      border-radius: 20px;
+      padding: 30px;
+      margin: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      width: 300px;
+      text-align: center;
+      transform-style: preserve-3d;
+      /* Enable 3D transforms */
+      transition: transform 0.2s;
+      /* Add a transition effect */
+    }
+
+    .timer:hover {
+      transform: translateY(-5px) rotateY(10deg);
+      /* Tilt slightly on hover */
+    }
+
+    h2 {
+      font-size: 2em;
+      margin-bottom: 10px;
+      color: #e8c152;
+      text-shadow: 0 0 10px #e8c152;
+      /* Add a subtle glow */
+      position: relative;
+      z-index: 2;
+      /* Ensure title is on top */
+    }
+
+    .countup {
+      font-size: 1.5em;
+      margin-bottom: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      position: relative;
+      z-index: 2;
+      /* Ensure timer is on top */
+    }
+
+    .countup .timeel {
+      display: inline-block;
+      padding: 8px 12px;
+      background: rgba(40, 40, 40, 0.8);
+      margin: 5px;
+      color: #f0f0f0;
+      border-radius: 5px;
+    }
+
+    .countup span[class*="timeRef"] {
+      color: #e8c152;
+    }
+
+    /* Add a subtle shine effect to the timer */
+    .timer::before {
+      content: '';
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      right: -5px;
+      bottom: -5px;
+      background: linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+      border-radius: 20px;
+      z-index: 1;
+      /* Place shine behind the title and timer */
+      transform: rotate(-30deg);
+      /* Angle the shine */
+    }
+
+    #example1 {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 200px;
+      height: 300px;
+      border: 1px solid #666;
+      z-index: 10;
+      /* Ensure PDF viewer is on top */
+    }
+
+    /* Add some subtle background animation */
+    body {
+      animation: backgroundAnimation 10s linear infinite;
+    }
+
+    @keyframes backgroundAnimation {
+      0% {
+        background-position: 0 0;
+      }
+
+      50% {
+        background-position:   
+ 50px 50px;
+      }
+
+      100% {
+        background-position: 0 0;
+      }
+    }
+  </style>
+</head>
+<body>
+    <div class="container">
+        <div class="timer" id="countup1">
+            <h2>Venus</h2>
+            <div class="countup">
+                <span class="timeel years1">00</span>
+                <span class="timeel timeRefDays">years</span>
+                <span class="timeel days1">00</span>
+                <span class="timeel timeRefDays">days</span>
+                <span class="timeel hours1">00</span>
+                <span class="timeel timeRefHours">hours</span>
+                <span class="timeel minutes1">00</span>
+                <span class="timeel timeRefMinutes">minutes and</span>
+                <span class="timeel seconds1">00</span>
+                <span class="timeel timeRefSeconds">seconds</span>
+            </div>
+        </div>
+
+        <div class="timer" id="countup2">
+            <h2>Storm</h2>
+            <div class="countup">
+                <span class="timeel years2">00</span>
+                <span class="timeel timeRefDays">years</span>
+                <span class="timeel days2">00</span>
+                <span class="timeel timeRefDays">days</span>
+                <span class="timeel hours2">00</span>
+                <span class="timeel timeRefHours">hours</span>
+                <span class="timeel minutes2">00</span>
+                <span class="timeel timeRefMinutes">minutes and</span>
+                <span class="timeel seconds2">00</span>
+                <span class="timeel timeRefSeconds">seconds</span>
+            </div>
+        </div>
+
+        <div class="timer" id="countup3">
+            <h2>New Moon</h2>
+            <div class="countup">
+                <span class="timeel years3">00</span>
+                <span class="timeel timeRefDays">years</span>
+                <span class="timeel days3">00</span>
+                <span class="timeel timeRefDays">days</span>
+                <span class="timeel hours3">00</span>
+                <span class="timeel timeRefHours">hours</span>
+                <span class="timeel minutes3">00</span>
+                <span class="timeel timeRefMinutes">minutes and</span>
+                <span class="timeel seconds3">00</span>
+                <span class="timeel timeRefSeconds">seconds</span>
+            </div>
+        </div>
+
+        <div class="timer" id="countup4">
+            <h2>Sirius</h2>
+            <div class="countup">
+                <span class="timeel years4">00</span>
+                <span class="timeel timeRefDays">years</span>
+                <span class="timeel days4">00</span>
+                <span class="timeel timeRefDays">days</span>
+                <span class="timeel hours4">00</span>
+                <span class="timeel timeRefHours">hours</span>
+                <span class="timeel minutes4">00</span>
+                <span class="timeel timeRefMinutes">minutes and</span>
+                <span class="timeel seconds4">00</span>
+                <span class="timeel timeRefSeconds">seconds</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="example1"></div>
+
+    <script src="/js/pdfobject.js"></script>
+    <script>PDFObject.embed("/FAQ.pdf", "#example1");</script>
+
+    <script type="text/javascript">
+        function countUpFromTime(countFrom, id) {
+            var now = new Date();
+            var countFrom = new Date(countFrom);
+            var timeDifference = (now - countFrom);
+
+            var secondsInADay = 60 * 60 * 1000 * 24;
+            var secondsInAHour = 60 * 60 * 1000;   
+
+
+            var days = Math.floor(timeDifference / secondsInADay);
+            var years = Math.floor(days / 365);
+            if (years > 0) {
+                days = days - (years * 365);
+            }
+
+            var hours = Math.floor((timeDifference % secondsInADay) / secondsInAHour);
+            var mins = Math.floor(((timeDifference % secondsInADay) % secondsInAHour) / (60 * 1000));
+            var secs = Math.floor((((timeDifference % secondsInADay) % secondsInAHour) % (60 * 1000)) / 1000);
+
+            var idEl = document.getElementById(id);
+            idEl.getElementsByClassName('years'   
+ + id.replace('countup', ''))[0].innerHTML = years;
+            idEl.getElementsByClassName('days' + id.replace('countup', ''))[0].innerHTML = days;
+            idEl.getElementsByClassName('hours' + id.replace('countup', ''))[0].innerHTML = hours;
+            idEl.getElementsByClassName('minutes' + id.replace('countup', ''))[0].innerHTML = mins;
+            idEl.getElementsByClassName('seconds' + id.replace('countup', ''))[0].innerHTML = secs;
+
+            clearTimeout(countUpFromTime.interval);
+            countUpFromTime.interval = setTimeout(function() {
+                countUpFromTime(countFrom, id);
+            }, 1000);   
+
+        }
+
+        window.onload = function()   
+ {
+            countUpFromTime("Feb 14, 2024 21:51:00", 'countup1');
+            countUpFromTime("Jan 14, 2024 17:30:00", 'countup2');
+            countUpFromTime("Nov 19, 2023 16:48:00", 'countup3');
+            countUpFromTime("Feb 12, 2023 22:45:00", 'countup4');
+        };
+    </script>
+</body>
+</html>
